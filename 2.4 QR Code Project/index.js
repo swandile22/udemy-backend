@@ -24,7 +24,6 @@ inquirer
   ])
   .then((answers) => {
     const url = answers.URL
-
     const qr_png = qr.image(url, { type: 'png' });
     qr_png.pipe(fs.createWriteStream('qr_specs.png'));
 
