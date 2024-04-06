@@ -1,5 +1,8 @@
 <form action="/submit" method="POST">
+    <label>Upload image for blog thumbnail</label>
     <input type="file" accept=".png, .jpg, .svg">
     <input type="text" name="fName" placeholder="Blog Header title">
+    <label for="url">Enter blog post link</label>
+    <input type="url" name="url" id="url" placeholder="https://example.com" pattern="https://.*" size="30" required>
     <input type="submit" value="Create">
 </form>
