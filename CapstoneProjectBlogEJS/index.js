@@ -22,7 +22,6 @@ app.get("/", (req, res)=> {
 });
 
 app.post("/submit", upload.single("fileUpload"), (req, res)=>{
-    const blogThumbnail = req.body["fileUpload"];
     const blogHeader = req.body["blogHeader"];
     const blogSubheader = req.body["blogSubHeader"];
     const blogURL = req.body["blogUrl"];
