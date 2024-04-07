@@ -8,7 +8,7 @@
 </a>
 <% } %>
 
-<form action="/submit" method="POST">
+<form action="/submit" method="POST" enctype="multipart/form-data">
     <label>Upload image for blog thumbnail</label>
     <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
     <input type="text" name="blogHeader" placeholder="Blog Header title">
