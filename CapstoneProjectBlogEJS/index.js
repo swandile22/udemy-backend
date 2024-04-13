@@ -5,6 +5,7 @@ import multer from 'multer';
 
 const app = express();
 const port = 5400;
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const storage = multer.diskStorage({
@@ -25,6 +26,7 @@ app.post("/submit", upload.single("fileUpload"), (req, res)=>{
     const blogHeader = req.body["blogHeader"];
     const blogSubheader = req.body["blogSubHeader"];
     const blogURL = req.body["blogUrl"];
+    const blogThumbnail = req.file.filename;
    res.render("index.ejs", {thumbnail:blogThumbnail,
        headerText:blogHeader, subHeader: blogSubheader, URL:blogURL})
 });
