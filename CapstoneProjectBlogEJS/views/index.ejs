@@ -1,14 +1,64 @@
-<% if (locals.thumbnail && locals.headerText && locals.subHeader && locals.URL) { %>
-<img src="/images/<%= thumbnail %>">
-<a href=<%=URL%> target="_blank" >
-<h1>
-    <%= headerText %>
-</h1>
-<p><%=subHeader%></p>
-</a>
-<% } %>
+<section class="my__blog__banner">
+    <img src="/images/modern-blue-wavy-banner-design-background_662550-320.jpg">
+</section>
 
-<form action="/submit" method="POST" enctype="multipart/form-data">
+<section>
+    <div class="my__blog__list">
+        <div class="my__blog__list__post">
+            <a>
+                <img src="/images/davisuko-5E5N49RWtbA-unsplash.jpg" alt="blog image">
+                <h1>
+                    Blog header text
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                </p>
+            </a>
+        </div>
+        <div class="my__blog__list__post">
+            <a>
+                <img src="/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="blog image">
+                <h1>
+                    Blog header text
+                </h1>
+                <p>
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+            </a>
+        </div>
+        <div class="my__blog__list__post">
+            <a>
+                <img src="/images/mike-dorner-sf_1ZDA1YFw-unsplash.jpg" alt="blog image">
+                <h1>
+                    Blog header text
+                </h1>
+                <p>
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+            </a>
+        </div>
+
+        <% if (locals.thumbnail && locals.headerText && locals.subHeader && locals.URL) { %>
+        <div id="my__blog__list__post__delete" class="my__blog__list__post">
+            <img src="/images/<%= thumbnail %>">
+            <a href=<%= URL %> target="_blank">
+                <h1>
+                    <%= headerText %>
+                </h1>
+                <p><%= subHeader %></p>
+            </a>
+            <form action="/blog/<%= postId %>" method="POST" enctype="multipart/form-data">
+                <button type="submit">Delete</button>
+            </form>
+            <% } %>
+        </div>
+</section>
+
+<form action="/blog" method="POST" enctype="multipart/form-data">
     <label>Upload image for blog thumbnail</label>
     <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
     <input type="text" name="blogHeader" placeholder="Blog Header title">
