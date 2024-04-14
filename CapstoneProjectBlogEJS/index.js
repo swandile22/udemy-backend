@@ -35,10 +35,19 @@ app.post("/blog", upload.single("fileUpload"), (req, res)=>{
        headerText:blogHeader, subHeader: blogSubheader, URL:blogURL})
 });
 
-app.post("/blog/:my__blog__list__post__delete/delete", (req, res)=>{
-    const postId = req.params.my__blog__list__post__delete;
-    res.render("index.ejs", {postId:postId})
+app.patch("/blog", (req,res)=>{
+    const blogHeader = req.body["blogHeader"];
+    const blogSubheader = req.body["blogSubHeader"];
+    const blogURL = req.body["blogUrl"];
+    const blogThumbnail = req.file.filename;
+   res.render("index.ejs", {thumbnail:blogThumbnail,
+       headerText:blogHeader, subHeader: blogSubheader, URL:blogURL})
 })
+
+app.delete("/blog/:id", (req, res)=>{
+  res.render("index.ejs")
+});
+
 app.listen(port, ()=>{
     console.log(`Server is running on ${port}`);
 });
