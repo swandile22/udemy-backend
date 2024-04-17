@@ -1,47 +1,17 @@
 body {
-    position: fixed;
-    margin: 0;
+    margin: 0 auto;
+    /*font-family: 'Montserrat', sans-serif;*/
 }
 
-header {
-    position: relative;
-}
-
-main {
-    position: relative;
-    width: 100%;
-    left: 0;
-    top: 5rem;
-    z-index: -1;
-}
-
-footer {
-    padding-top: 5rem;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    text-align: left;
-    padding-left: 2rem;
-}
-
-.my__blog__navigation {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background: mediumvioletred;
+.my__blog__header {
     display: flex;
     align-items: center;
+    background-color: #75a7f1;
 }
 
-.my__blog__navigation__image,
-.my__blog__navigation__items {
+.my__blog__header__logo,
+.my__blog__navigation {
     width: 50%;
-}
-
-.my__blog__navigation a img {
-    width: 200px;
-    max-height: 100px;
 }
 
 .my__blog__navigation__list ul {
@@ -49,32 +19,84 @@ footer {
     gap: 5rem;
 }
 
+.my__blog__header__logo__image svg {
+    padding: 1.5rem 0 0.5rem 1.5rem;
+    width: 150px;
+}
+
+.my__blog__navigation__list__items a {
+    color: #000;
+    font-size: 1.5rem;
+}
+
 .my__blog__navigation__list__items a {
     color: #fff;
-    font-size: large;
     font-weight: bold;
     text-decoration: none;
+}
+
+.my__blog__navigation__list__items:hover a {
+    color: rgb(0, 112, 240);
     transition: all .3s ease-in-out;
 }
 
-.my__blog__navigation__list__items a:hover {
-    color: #3a3b3c;
-    transition: all .3s ease-in-out;
-}
-
-.my__blog__home__header {
-    position: relative;
+.my__blog__home__main__content {
     background: url("/images/thomas-charters-zAi2Is48-MA-unsplash.jpg") center;
-    width: 100vw;
-    height: 85vh;
+    height: 100vh;
+    position: relative;
 }
 
-.my__blog__home__header h1 {
-    color: #fff;
-    font-size: 3rem;
-    text-align: center;
+.my__blog__home__main__content__overlay {
     position: absolute;
-    top: 50%;
-    left: 0;
+    background: #000;
+    opacity: 0.5;
+    top: 0;
     right: 0;
+    bottom: 0;
+    left: 0;
 }
+
+.my__blog__home__main__content__header {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 0);
+}
+
+.my__blog__home__main__content__header__title {
+    transition: all .3s ease-in-out;
+}
+
+.my__blog__home__main__content__header:hover .my__blog__home__main__content__header__title {
+    transform: scale(1.4) translateY(-10px);
+    transition: all .3s ease-in-out;
+}
+
+
+
+.my__blog__footer__section {
+    color: #fff;
+    background: #75a7f1;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.my__blog__footer__section .my__blog__footer__section__text {
+    margin: 0 auto;
+}
+
+    /*blog listing page*/
+.my__blog__main__section {
+ background: #75a7f1;
+}
+
+.my__blog__listing__hero__banner__section {
+    background: url("/images/thomas-charters-zAi2Is48-MA-unsplash.jpg") center;
+    height: 70vh;
+}
+
+

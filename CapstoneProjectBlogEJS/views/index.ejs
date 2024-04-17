@@ -1,74 +1,85 @@
-<section class="my__blog__banner">
-    <img src="/images/modern-blue-wavy-banner-design-background_662550-320.jpg">
+<%- include("partials/header.ejs") %>
+
+<section class="my__blog__listing__hero__banner__section">
+    <div class="my__blog__listing__hero__banner__section__overlay"></div>
+    <div class="my__blog__listing__hero__banner__section__header__title">
+        Blog Listing
+    </div>
 </section>
 
-<section>
-    <div class="my__blog__list">
-        <div class="my__blog__list__post">
-            <a>
-                <img src="/images/davisuko-5E5N49RWtbA-unsplash.jpg" alt="blog image">
-                <h1>
-                    Blog header text
-                </h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                </p>
-            </a>
-        </div>
-        <div class="my__blog__list__post">
-            <a>
-                <img src="/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="blog image">
-                <h1>
-                    Blog header text
-                </h1>
-                <p>
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur.
-                </p>
-            </a>
-        </div>
-        <div class="my__blog__list__post">
-            <a>
-                <img src="/images/mike-dorner-sf_1ZDA1YFw-unsplash.jpg" alt="blog image">
-                <h1>
-                    Blog header text
-                </h1>
-                <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                </p>
-            </a>
-        </div>
+<article>
+        <div class="my__blog__list">
+            <div class="my__blog__list__post">
+                <a>
+                    <img src="/images/davisuko-5E5N49RWtbA-unsplash.jpg" alt="blog image">
+                    <h1>
+                        Blog header text
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    </p>
+                </a>
+            </div>
+            <div class="my__blog__list__post">
+                <a>
+                    <img src="/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="blog image">
+                    <h1>
+                        Blog header text
+                    </h1>
+                    <p>
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                        nulla pariatur.
+                    </p>
+                </a>
+            </div>
+            <div class="my__blog__list__post">
+                <a>
+                    <img src="/images/mike-dorner-sf_1ZDA1YFw-unsplash.jpg" alt="blog image">
+                    <h1>
+                        Blog header text
+                    </h1>
+                    <p>
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                        deserunt mollit anim id est laborum.
+                    </p>
+                </a>
+            </div>
 
-        <% if (locals.thumbnail && locals.headerText && locals.subHeader && locals.URL) { %>
-        <div id="my__blog__list__post__delete" class="my__blog__list__post">
-            <img src="/images/<%= thumbnail %>">
-            <a href=<%= URL %> target="_blank">
-                <h1>
-                    <%= headerText %>
-                </h1>
-                <p><%= subHeader %></p>
-            </a>
-             <form action="/blog" method="PATCH" enctype="multipart/form-data">
-                <button type="submit">Edit</button>
-            </form>
-            <form action="/blog" method="DELETE" enctype="multipart/form-data">
-                <button type="submit">Delete</button>
-            </form>
-            <% } %>
+            <% if (locals.thumbnail && locals.headerText && locals.subHeader && locals.URL) { %>
+            <div id="my__blog__list__post__delete" class="my__blog__list__post">
+                <img src="/images/<%= thumbnail %>">
+                <a href=<%= URL %> target="_blank">
+                    <h1>
+                        <%= headerText %>
+                    </h1>
+                    <p><%= subHeader %></p>
+                </a>
+                <form action="/blog" method="PATCH" enctype="multipart/form-data">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/blog" method="DELETE" enctype="multipart/form-data">
+                    <button type="submit">Delete</button>
+                </form>
+                <% } %>
+            </div>
         </div>
-</section>
+</article>
 
-<form action="/blog" method="POST" enctype="multipart/form-data">
-    <label>Upload image for blog thumbnail</label>
-    <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
-    <input type="text" name="blogHeader" placeholder="Blog Header title">
-    <textarea id="blogSubHeaderId" name="blogSubHeader" rows="4" cols="50"
-              placeholder="Enter blog sub-header"></textarea>
-    <label for="url">Enter blog post link</label>
-    <input type="url" name="blogUrl" id="url" placeholder="https://example.com" pattern="https://.*" size="30" required>
-    <input type="submit" value="Create">
-</form>
+<aside>
+    <form action="/blog" method="POST" enctype="multipart/form-data">
+        <label>Upload image for blog thumbnail</label>
+        <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
+        <input type="text" name="blogHeader" placeholder="Blog Header title">
+        <textarea id="blogSubHeaderId" name="blogSubHeader" rows="4" cols="50"
+                  placeholder="Enter blog sub-header"></textarea>
+        <label for="url">Enter blog post link</label>
+        <input type="url" name="blogUrl" id="url" placeholder="https://example.com" pattern="https://.*" size="30"
+               required>
+        <input type="submit" value="Create">
+    </form>
+</aside>
+
+<%- include("partials/footer.ejs") %>
 
