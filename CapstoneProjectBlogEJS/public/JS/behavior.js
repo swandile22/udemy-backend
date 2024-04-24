@@ -4,7 +4,6 @@ document.addEventListener("scroll", (e) => {
     const scrollPosition = window.scrollY;
     const threshold = 500;
 
-
     if (scrollPosition > threshold) {
       headerNav.classList.add("scroll");
       headerLogo.classList.add("scroll");
