@@ -26,6 +26,10 @@ app.get("/blog", (req, res)=> {
     res.render("index.ejs");
 });
 
+app.get("/bio", (req, res)=> {
+    res.render("bio.ejs");
+})
+
 app.post("/blog", upload.single("fileUpload"), (req, res)=>{
     const blogHeader = req.body["blogHeader"];
     const blogSubheader = req.body["blogSubHeader"];

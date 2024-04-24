@@ -5,11 +5,23 @@
     <div class="my__blog__listing__hero__banner__section__header__title">
         Blog Listing
     </div>
+    <div class="my__blog__listing__hero__banner__section__icon">
+        <a href="#blog__listing__section__id">
+            <svg fill="#fff" width="70px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 viewBox="0 0 330 330" xml:space="preserve">
+<path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+	c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+	s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/>
+</svg>
+        </a>
+    </div>
 </section>
 
-<article>
-        <div class="my__blog__list">
-            <div class="my__blog__list__post">
+<article id="blog__listing__section__id" class="my__blog__listing">
+    <figure class="my__blog__listing__section">
+        <div class="my__blog__listing__content">
+            <div class="my__blog__listing__content__post">
                 <a>
                     <img src="/images/davisuko-5E5N49RWtbA-unsplash.jpg" alt="blog image">
                     <h1>
@@ -21,7 +33,7 @@
                     </p>
                 </a>
             </div>
-            <div class="my__blog__list__post">
+            <div class="my__blog__listing__content__post">
                 <a>
                     <img src="/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="blog image">
                     <h1>
@@ -34,7 +46,7 @@
                     </p>
                 </a>
             </div>
-            <div class="my__blog__list__post">
+            <div class="my__blog__listing__content__post">
                 <a>
                     <img src="/images/mike-dorner-sf_1ZDA1YFw-unsplash.jpg" alt="blog image">
                     <h1>
@@ -48,38 +60,43 @@
             </div>
 
             <% if (locals.thumbnail && locals.headerText && locals.subHeader && locals.URL) { %>
-            <div id="my__blog__list__post__delete" class="my__blog__list__post">
-                <img src="/images/<%= thumbnail %>">
-                <a href=<%= URL %> target="_blank">
-                    <h1>
-                        <%= headerText %>
-                    </h1>
-                    <p><%= subHeader %></p>
-                </a>
-                <form action="/blog" method="PATCH" enctype="multipart/form-data">
-                    <button type="submit">Edit</button>
-                </form>
-                <form action="/blog" method="DELETE" enctype="multipart/form-data">
-                    <button type="submit">Delete</button>
-                </form>
-                <% } %>
-            </div>
+                <div id="my__blog__list__post__delete" class="my__blog__listing__content__post">
+                    <a class="my__blog__listing__content__post__link" href=<%= URL %> target="_blank">
+                        <img src="/images/<%= thumbnail %>">
+                        <h1>
+                            <%= headerText %>
+                        </h1>
+                        <p><%= subHeader %></p>
+                    </a>
+                    <div class="my__blog__listing__content__post__form__buttons">
+                        <form action="/blog" method="PATCH" enctype="multipart/form-data">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="/blog" method="DELETE" enctype="multipart/form-data">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+
         </div>
+    </figure>
+
+    <figure class="my__blog__listing__form__section">
+        <form action="/blog" method="POST" enctype="multipart/form-data">
+            <label class="my__blog__listing__form__section__title">Upload image for blog thumbnail</label>
+            <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
+            <input class="my__blog__listing__form__section__blog__header" type="text" name="blogHeader"
+                   placeholder="Blog Header title">
+            <textarea class="my__blog__listing__form__section__blog__sub__header" id="blogSubHeaderId"
+                      name="blogSubHeader" rows="4" cols="50"
+                      placeholder="Enter blog sub-header"></textarea>
+            <label for="url">Enter blog post link</label>
+            <input type="url" name="blogUrl" id="url" placeholder="https://example.com" pattern="https://.*" size="30"
+                   required>
+            <input type="submit" value="Create">
+        </form>
+    </figure>
 </article>
-
-<aside>
-    <form action="/blog" method="POST" enctype="multipart/form-data">
-        <label>Upload image for blog thumbnail</label>
-        <input type="file" name="fileUpload" accept=".png, .jpg, .svg">
-        <input type="text" name="blogHeader" placeholder="Blog Header title">
-        <textarea id="blogSubHeaderId" name="blogSubHeader" rows="4" cols="50"
-                  placeholder="Enter blog sub-header"></textarea>
-        <label for="url">Enter blog post link</label>
-        <input type="url" name="blogUrl" id="url" placeholder="https://example.com" pattern="https://.*" size="30"
-               required>
-        <input type="submit" value="Create">
-    </form>
-</aside>
-
 <%- include("partials/footer.ejs") %>
 
